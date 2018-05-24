@@ -21,13 +21,13 @@
 <script>
 function CustomMapType() {}
 
-CustomMapType.prototype.tileSize = new google.maps.Size(512,512);
-CustomMapType.prototype.minZoom = 2;
+CustomMapType.prototype.tileSize = new google.maps.Size(256,256);
+CustomMapType.prototype.minZoom = 1;
 CustomMapType.prototype.maxZoom = 5;
 CustomMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
     var div = ownerDocument.createElement('DIV');
     var baseURL = 'Images/';
-    ext = "jpg";
+    ext = "png";
     baseURL += zoom + '_' + coord.x + '_' + coord.y + '.' + ext;
     div.style.width = this.tileSize.width + 'px';
     div.style.height = this.tileSize.height + 'px';
@@ -102,8 +102,8 @@ if ("onhashchange" in window) {
 
 function load() {
     var mapOptions = {
-        zoom: 2,
-        // minZoom: 2,
+        zoom: 1,
+        // minZoom: 1,
         // maxZoom: 5,
         isPng: false,
         mapTypeControl: false,
